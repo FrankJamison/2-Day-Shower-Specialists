@@ -505,6 +505,16 @@ button { cursor: pointer; }
 
 .phone--mb14 { margin: 0 0 14px; }
 
+.formStatus {
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
+}
+
 .footerRow {
   display: flex;
   gap: 10px;

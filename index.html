@@ -432,6 +432,8 @@
         <h2 class="sectionTitle" id="quote">Get Your Free In-Home Shower Quote</h2>
         <p class="sectionLead">Fill out the form and a team member will contact you to schedule your consultation.</p>
 
+        <p id="formStatus" class="formStatus" role="status" aria-live="polite" hidden></p>
+
         <div class="phone phone--mb14" aria-label="Phone call option">
           <p class="sectionLead sectionLead--tight">Prefer to speak with someone right now?</p>
           <a href="tel:+18502223333">(850) 222-3333</a>
@@ -450,9 +452,7 @@
           <div class="formCard">
             <h3 class="formTitle">Schedule Your Free In-Home Quote</h3>
             <p class="formLead">Quick form — we’ll reach out to confirm a time that works for you.</p>
-            <!-- Netlify form: works on Netlify with no JS. -->
-            <form name="quote" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="#quote">
-              <input type="hidden" name="form-name" value="quote">
+            <form name="quote" method="POST" action="/submit.php">
               <p class="srOnly">
                 <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
               </p>

@@ -22,3 +22,7 @@ __pycache__/
 _pdf_pages/
 _pdf_extract/
 bath remodel funnel.pdf
+
+# Server-side form submissions
+data/leads.csv
+data/rate_limit.json
