@@ -1,0 +1,3 @@
+# Block web access to runtime lead storage
+# (submit.php still writes to this directory on the server)
+Require all denied
