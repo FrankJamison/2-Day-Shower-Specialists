@@ -13,6 +13,7 @@ Static, mobile-first landing page + a minimal PHP form handler for a Hostinger V
 - `submit.php` — form handler (validates + blocks simple bots + appends leads to CSV)
 - `data/` — server-side storage directory (contains `.gitkeep` only in git)
 - `robots.txt`, `sitemap.xml` — crawl/index support
+- `README.md`, `.gitignore`
 
 ## Local development
 
@@ -71,6 +72,24 @@ sudo chmod 755 data
 
 If your server user is not `www-data`, adjust accordingly.
 
+### 3a) Protect `data/` from public access
+
+Because `data/` lives under the web root in this repo, you should explicitly block web access to it so lead files can’t be downloaded.
+
+Apache (via `.htaccess` inside `data/`):
+
+```apache
+Require all denied
+```
+
+Nginx (server block):
+
+```nginx
+location ^~ /data/ {
+  deny all;
+}
+```
+
 ### 4) Confirm the form endpoint
 
 The form posts to:
@@ -102,7 +121,7 @@ The UI message is shown by `assets/js/main.js`.
 
 Leads are stored on the server in `data/leads.csv`.
 
-These runtime lead files are intentionally ignored by git via `.gitignore`.
+These runtime files are intentionally ignored by git via `.gitignore` (`data/*.csv`, `data/*.json`).
 
 ## SEO / domain configuration
 
@@ -130,13 +149,3 @@ After you set real IDs, the tracking scripts will load asynchronously.
 
 - PDF/extraction artifacts are not tracked (see `.gitignore`).
 - Images live under `assets/images/`.
-
-## Common ops
-
-Commit and push changes:
-
-```bash
-git add -A
-git commit -m "Your message"
-git push
-```
